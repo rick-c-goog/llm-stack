@@ -1,16 +1,18 @@
-# Self-host Llama 2 model in GKE
+# Self-host and serve Llama 2 model in GKE with GPU T4
 ## Prerequisites:
-Meta access request: https://ai.meta.com/resources/models-and-libraries/llama-downloads/
+Meta access request: https://ai.meta.com/resources/models-and-libraries/llama-downloads/ need regisgter an email address to download
 
-Hugging face access: https://huggingface.co/meta-llama/Llama-2-7b
+Go to Hugging face, create account account with same email registered in Meta request. Then find Llama 2 model, fill out access request: https://huggingface.co/meta-llama/Llama-2-7b. Need to wait for a few hours with the approval email to be able to use Llama 2
 
-Get Hugging face access token from HF settings
+Get Hugging face access token from HF settings, 
 
 Create a Artifact Registry repo: llm-repo in us-central1
 
 Main GCP Services:
 
 GKE, Cloud Build, Cloud Run
+
+GPU T4 nodes,
 ## 1. Update Llama 2 model serving config file with your own HF token API,
 
 ```
