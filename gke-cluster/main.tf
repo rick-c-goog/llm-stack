@@ -31,7 +31,7 @@ provider "google" {
 resource "google_container_cluster" "gpu_cluster" {
   name               = "gpu-cluster"
   location           = var.region
-  initial_node_count = 1
+  initial_node_count = 2
   remove_default_node_pool = true
 }
 
@@ -39,18 +39,18 @@ resource "google_container_node_pool" "primary_preemptible_nodes" {
   name       = "gpu-node-pool"
   location   = var.region
   cluster    = google_container_cluster.gpu_cluster.name
-  node_count = 1
+  node_count = 2
 
   node_config {
     guest_accelerator {
       type = "nvidia-tesla-t4"
-      count = 1
+      count = 2
       gpu_sharing_config {
         gpu_sharing_strategy = "TIME_SHARING"
         max_shared_clients_per_gpu = 8
       }
     }
-    machine_type = "n1-standard-4"
+    machine_type = "n1-standard-8"
     disk_size_gb = 50
     spot = true
     oauth_scopes = [
