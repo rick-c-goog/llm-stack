@@ -6,3 +6,4 @@ bitsandbytes
 einops
 scipy
 transformers
+deepspeed-mii
