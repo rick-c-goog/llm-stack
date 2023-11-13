@@ -25,7 +25,7 @@ data "google_client_config" "default" {
 data "google_container_cluster" "default" {
   name       = "gpu-cluster"
   depends_on = [module.gke-cluster]
-  location   = var.region
+  location   = ${var.region}-b
 }
 
 provider "kubernetes" {
