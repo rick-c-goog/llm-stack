@@ -294,7 +294,7 @@ module "gke-cluster" {
   source       = "./gke-cluster"
 
   project_id = var.project_id
-  region     = var.region
+  region     = "${var.region}-b"
   key_file   = var.key_file
 }
 

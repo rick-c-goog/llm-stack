@@ -31,7 +31,7 @@ provider "google" {
 resource "google_container_cluster" "gpu_cluster" {
   name               = "gpu-cluster"
   location           = var.region
-  initial_node_count = 2
+  initial_node_count = 1
   remove_default_node_pool = true
 }
 
@@ -39,7 +39,7 @@ resource "google_container_node_pool" "primary_preemptible_nodes" {
   name       = "gpu-node-pool"
   location   = var.region
   cluster    = google_container_cluster.gpu_cluster.name
-  node_count = 2
+  node_count = 1
 
   node_config {
     guest_accelerator {
