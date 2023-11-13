@@ -25,7 +25,7 @@ data "google_client_config" "default" {
 data "google_container_cluster" "default" {
   name       = "gpu-cluster"
   depends_on = [module.gke-cluster]
-  location   = ${var.region}-b
+  location   = "${var.region}-b"
 }
 
 provider "kubernetes" {
@@ -131,7 +131,7 @@ resource "kubernetes_deployment" "llama2_7b" {
           }
           resources {
             limits = {
-              "nvidia.com/gpu" = 1
+              "nvidia.com/gpu" = 2
             }
           }
         }
